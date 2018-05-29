@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{minted}
+\graphicspath{{images/}}
+\setminted{frame=lines, framesep=2mm, baselinestretch=1.2, fontsize=\footnotesize, linenos, mathescape=true}
+\usemintedstyle{vs}
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+
+\title{Operating Systems Laboratory}                                % Title
+\author{Your Id}                               % Author
+\date{\today}                                         % Date
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{\thetitle}
+\cfoot{\thepage}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+    \centering
+    \vspace*{0.5 cm}
+    \includegraphics[scale = 0.75]{logo.png}\\[1.0 cm]  % University Logo
+    \textsc{\LARGE Southern University of Science \newline\newline and Technology}\\[2.0 cm]  % University Name
+    \textsc{\Large CS303}\\[0.5 cm]               % Course Code
+    \rule{\linewidth}{0.2 mm} \\[0.4 cm]
+    { \huge \bfseries \thetitle}\\
+    \rule{\linewidth}{0.2 mm} \\[1.5 cm]
+
+    \begin{minipage}{0.4\textwidth}
+
+      \begin{centering} \large
+        Your Name\\
+        Some Colleage\\
+        Your Id\\
+      \end{centering}
+    \end{minipage}\\[2 cm]
+
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Implement a File System}
+\subsection{Step 1}
+\subsection{Step 2}
+\subsection{Code}
+This template use minted to provide syntax highlight functions, you need to install it with following commands:
+\begin{minted}{bash}
+  pip install Pygments
+\end{minted}
+Here are some examples:
+\paragraph{Multi-line of Codes}
+\begin{minted}{python}
+  import numpy as np
+
+  def incmatrix(genl1,genl2):
+      m = len(genl1)
+      n = len(genl2)
+      M = None #to become the incidence matrix
+      VT = np.zeros((n*m,1), int)  #dummy variable
+
+      #compute the bitwise xor matrix
+      M1 = bitxormatrix(genl1)
+      M2 = np.triu(bitxormatrix(genl2),1)
+
+      # $f = \int_0^{\inf}x^2$
+      for i in range(m-1):
+          for j in range(i+1, m):
+              [r,c] = np.where(M2 == M1[i,j])
+              for k in range(len(r)):
+                  VT[(i)*n + r[k]] = 1;
+                  VT[(i)*n + c[k]] = 1;
+                  VT[(j)*n + r[k]] = 1;
+                  VT[(j)*n + c[k]] = 1;
+
+                  if M is None:
+                      M = np.copy(VT)
+                  else:
+                      M = np.concatenate((M, VT), 1)
+
+                  VT = np.zeros((n*m,1), int)
+
+      return M
+\end{minted}
+\section{Implement a Cache}
+\newpage
+\bibliographystyle{plain}
+\bibliography{biblist}
+
+\end{document}
